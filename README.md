@@ -30,7 +30,10 @@ echo 'Puclic is is:' $ip
 ```
 
 ## SSH to the machine
-ssh azureuser@$ip
+
+Create a new shell session and ssh into the machine
+
+ssh azureuser@<copied IP>
 
 ## Create simple web app
 
@@ -53,4 +56,4 @@ curl http://{$ip}:8000
 
 ## Cleanup resources
 
-az vm delete  -g $group -m $vm --yes
+Explore vm before deleting it manually from Azure portal
