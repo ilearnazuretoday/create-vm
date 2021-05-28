@@ -1,20 +1,48 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Create VM in Azure
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Copy and paste commands into Azure cloud shell
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+> Hint
+> Use `az interactive` mode for command completion
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Setup variables
+group='RG-LEARNING-AZURE'
+vm='deleteme-plssss'
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Create linux ubuntu VM
+az vm create \
+  --resource-group $group \
+  --name $vm \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+
+## Open port 8000 for web traffic
+az vm open-port --port 8000 --resource-group $group --name $vm
+
+ip=$(az vm list-ip-addresses -g $group -n $vm --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" -o tsv)
+echo 'Puclic is is:' $ip
+
+## SSH to the machine
+ssh $ip
+
+## Create simple web app
+
+mkdir webapp
+cd webapp
+echo "Hallo this is simple web app" > index.html
+python3 -m http.server
+
+## Access website from a browser or curl
+
+### Browser
+
+<IP Address>:8000
+
+### Curl
+
+curl http://{$ip}:8000
+
+## Cleanup resources
+
+az vm delete  -g $group -m $vm --yes
