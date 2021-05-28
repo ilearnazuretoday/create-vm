@@ -21,20 +21,25 @@ az vm create \
 ```
 
 ## Open port 8000 for web traffic
+```bash
 az vm open-port --port 8000 --resource-group $group --name $vm
 
 ip=$(az vm list-ip-addresses -g $group -n $vm --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" -o tsv)
+
 echo 'Puclic is is:' $ip
+```
 
 ## SSH to the machine
-ssh $ip
+ssh azureuser@$ip
 
 ## Create simple web app
 
+```bash
 mkdir webapp
 cd webapp
 echo "Hallo this is simple web app" > index.html
 python3 -m http.server
+```
 
 ## Access website from a browser or curl
 
