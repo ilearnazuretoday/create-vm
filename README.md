@@ -77,7 +77,7 @@ Swap back to previous session and call web page via wget or via browser.
 
 ### Wget
 
-wget -O- http://$ip:8000
+`wget -O- http://$ip:8000`
 
 > Check out how server is serving http page via GET verb
 
