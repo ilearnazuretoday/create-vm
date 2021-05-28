@@ -3,7 +3,7 @@
 Copy and paste commands into Azure cloud shell
 
 > Hint
-> Use `az interactive` mode for command completion
+> We are not going to go this not, but you could also use `az interactive` mode for command completion
 
 ## Setup variables
 group='RG-LEARNING-AZURE'
