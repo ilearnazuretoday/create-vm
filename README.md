@@ -11,12 +11,14 @@ group='RG-LEARNING-AZURE'
 vm='your name'
 
 ## Create linux ubuntu VM
+```bash
 az vm create \
   --resource-group $group \
   --name $vm \
   --image UbuntuLTS \
   --admin-username azureuser \
   --generate-ssh-keys
+```
 
 ## Open port 8000 for web traffic
 az vm open-port --port 8000 --resource-group $group --name $vm
