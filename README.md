@@ -6,9 +6,15 @@ Copy and paste commands into Azure cloud shell
 > We are not going to go this not, but you could also use `az interactive` mode for command completion
 
 ## Setup variables
-group='RG-LEARNING-AZURE'
 
+Setup variables we will be using to create and manage vm. Make sure they are created correctly by checking echo output
+
+```bash
+group='RG-LEARNING-AZURE'
 vm='your name'
+
+echo $group, $vm
+```
 
 ## Create linux ubuntu VM
 ```bash
