@@ -7,7 +7,8 @@ Copy and paste commands into Azure cloud shell
 
 ## Setup variables
 group='RG-LEARNING-AZURE'
-vm='deleteme-plssss'
+
+vm='your name'
 
 ## Create linux ubuntu VM
 az vm create \
