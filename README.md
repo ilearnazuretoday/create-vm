@@ -72,7 +72,7 @@ echo 'Public is is:' $ip
 
 Create a new shell session and ssh into the machine
 
-ssh azureuser@<copied IP>
+ssh azureuser@<<copied IP>>
 
 ## Create simple web app
 
