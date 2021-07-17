@@ -72,7 +72,7 @@ echo 'Public is is:' $ip
 
 Create a new shell session and ssh into the machine
 
-ssh azureuser@<<copied IP>>
+ssh azureuser@IP
 
 ## Create simple web app
 
@@ -95,7 +95,7 @@ Swap back to previous session and call web page via wget or via browser.
 
 ### Browser
 
-<IP Address>:8000
+IP Address:8000
 
 ### Wget
 
